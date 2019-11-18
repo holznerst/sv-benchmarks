@@ -10,12 +10,14 @@ int main() {
     struct T* y = NULL;
 
     y = malloc(sizeof(*y));
+    __intptr_t adressY = (__intptr_t) y;
 
     free(y);
 
     x = malloc(sizeof(*x));
+    __intptr_t adressX = (__intptr_t) x;
 
-    if (x == y)
+    if (adressX == adressY)
     { // if the second malloc returns the same value as the first, I should get here
         free(x);
     }

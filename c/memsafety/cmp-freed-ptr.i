@@ -515,9 +515,11 @@ int main() {
     struct T* x = ((void *)0);
     struct T* y = ((void *)0);
     y = malloc(sizeof(*y));
+    __intptr_t adressY = (__intptr_t) y;
     free(y);
     x = malloc(sizeof(*x));
-    if (x == y)
+    __intptr_t adressX = (__intptr_t) x;
+    if (adressX == adressY)
     {
         free(x);
     }
